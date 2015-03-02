@@ -1,5 +1,6 @@
 var rsj = require('rsj');
 var mongoose = require('mongoose');
+var async = require('async');
 var db = require('./server/config/database')();
 var models = require('./server/config/models');
 
@@ -88,24 +89,24 @@ dealSourceList.push(FatwalletSource);
 mongoose.connection.on('connected', function() {
   console.log('✔ MongoDB Connection Success!');
 
-  for (var i = dealSourceList.length - 1; i >= 0; i--) {
-    var src = new dealSourceList[i]();
+  async.each(dealSourceList, function (dealSrcClass, callback) {
+    var src = new dealSrcClass();
+
     src.getDeals(function (dealSrc, deals) {
       var dealSourceModel = models.DealSource;
 
       dealSourceModel.find({ name: dealSrc.name }, function (err, results) {
-        if (err) throw err;
+        if (err) callback(err);
         console.log("found: " + dealSrc.name);
 
         if (results.length) {
           results[0].deals = deals;
           results[0].save(function(err) {
-            if (err)
-              throw err;
+            if (err) callback(err);
           });
 
           console.log("\tupdated: " + dealSrc.name);
-
+          callback(); // success
         } else {
           console.log("not found: " + dealSrc.name);
 
@@ -113,15 +114,22 @@ mongoose.connection.on('connected', function() {
           source.save(function (err) {
             if (!err) {
               console.log("\tcreated " + dealSrc.name);
+              callback(); // success
             } else {
-              throw err;
+              callback(err);
             }
           });
 
         }
       });
     });
-  };
+  },
+  function (err) {
+    if (err) throw err;
+      mongoose.disconnect();
+
+  });
+
 });
 
 
