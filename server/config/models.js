@@ -1,4 +1,4 @@
-[2~var path = require('path'),
+var path = require('path'),
     fs = require('fs');
 
 var models = {};
