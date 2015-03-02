@@ -5,6 +5,7 @@
 'use strict';
 
 var indexController = require('../controllers/index');
+var apiController = require('../controllers/api');
 var path = require('path');
 var fs = require('fs');
 
@@ -22,6 +23,9 @@ var routes = function(app) {
   // Home
   app.get('/', indexController.index);
 
+  // API
+  app.get('/sources/', apiController.dealSources);
+  app.get('/source/:name', apiController.dealSource);
 };
 
 module.exports = routes;
