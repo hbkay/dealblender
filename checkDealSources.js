@@ -86,6 +86,29 @@ FatwalletSource.prototype = Object.create( DealSource.prototype );
 dealSourceList.push(FatwalletSource);
 
 
+// -----------
+var WootSource = function () {
+  var name  = 'woot!',
+      url   = 'http://api.woot.com/1/sales/current.rss';
+
+  DealSource.call(this, name, url);
+}
+WootSource.prototype = Object.create( DealSource.prototype );
+dealSourceList.push(WootSource);
+
+
+// -----------
+var CheapAssGamers = function () {
+  var name  = 'CheapAssGamers',
+      url   = 'https://www.cheapassgamer.com/rss/forums/1-cheap-ass-gamer-video-game-deals-forum/';
+
+  DealSource.call(this, name, url);
+}
+CheapAssGamers.prototype = Object.create( DealSource.prototype );
+dealSourceList.push(CheapAssGamers);
+
+
+
 mongoose.connection.on('connected', function() {
   console.log('✔ MongoDB Connection Success!');
 
