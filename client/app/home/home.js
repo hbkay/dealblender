@@ -5,6 +5,13 @@ angular.module('dealblender')
     $routeProvider
       .when('/', {
         templateUrl: '/app/home/home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl',
+        resolve: {
+          sources: getAll
+        }
       });
   });
+
+function getAll (sourcesFactory) {
+  return sourcesFactory.getAll();
+}
