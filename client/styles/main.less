@@ -13,12 +13,15 @@
 
 // Injects all bower_component files automatically
 // bower:less
+@import '../bower_components/bootstrap/less/bootstrap.less';
 // endbower
 
 // Injects all import files automatically (ex. _mypartial)
 // [injector]
 @import '../app/home/home.less';
 // [endinjector]
+
+@icon-font-path: "../bower_components/bootstrap/fonts/";
 
 .links a {
   color: white;

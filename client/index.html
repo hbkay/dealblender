@@ -12,6 +12,7 @@
     <!-- build:css(client) styles/global.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
+      <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -43,12 +44,15 @@
       <script src="/bower_components/angular/angular.js"></script>
       <script src="/bower_components/angular-route/angular-route.js"></script>
       <script src="/bower_components/json3/lib/json3.js"></script>
+      <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js(client) app/main.js -->
     <script src="/app/main.js"></script>
     <!-- [injector:js] -->
+    <script src="/app/dealsource/dealsource.directive.js"></script>
+    <script src="/app/dealsourcedeal/dealsourcedeal.directive.js"></script>
     <script src="/app/home/home.controller.js"></script>
     <script src="/app/home/home.js"></script>
     <script src="/app/sourcesfactory/sourcesfactory.factory.js"></script>
