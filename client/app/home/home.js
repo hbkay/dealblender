@@ -7,11 +7,11 @@ angular.module('dealblender')
         templateUrl: '/app/home/home.html',
         controller: 'HomeCtrl',
         resolve: {
-          sources: getAll
+          deals: getDeals
         }
       });
   });
 
-function getAll (sourcesFactory) {
-  return sourcesFactory.getAll();
+function getDeals (dealsFactory) {
+  return dealsFactory.getDeals();
 }

@@ -1,4 +1,4 @@
-// Generated on 2015-03-02 using generator-yeogurt 0.14.2
+// Generated on 2015-05-05 using generator-yeogurt 0.14.5
 'use strict';
 
 // Folder paths for:

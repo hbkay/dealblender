@@ -1,7 +1,13 @@
-<div class="container">
-  <h1>Welcome to Deal Blender!</h1>
+<div class="yeogurt-info">
+  <h1>Welcome to Yeogurt!</h1>
+  <p>
+    Take a look at the <a href="https://github.com/larsonjj/generator-yeogurt#yeogurt-generator---" data-bypass>documentation</a> and start mixing up something awesome.
+  </p>
   <p>
     <img src="/images/yeogurt-swirl.png" width="75px" class="logo" />
   </p>
-  <deal-source ng-repeat="src in sources"></deal-source>
+	<div id="deals" ng-repeat="deal in deals | orderBy: '-date'"> 
+	  		<deal content="deal"></deal>
+	</div>
+  <pre>{{deals}}</pre>
 </div>

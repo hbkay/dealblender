@@ -15,7 +15,10 @@ require('colors');
 var databaseConfig = function(app) {
 
   // Get current server environment
-  var env = (app ? app.get('env') : '');
+  // var env = app.get('env');
+  // Above commented out 
+  // ...for requiring database.js outside of server.js
+  var env = (app ? app.get('env') : 'development');
 
   // Connect to database
   mongoose.connect(settings.database.url, settings.database.options);

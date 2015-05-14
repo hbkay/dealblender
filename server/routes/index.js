@@ -24,8 +24,8 @@ var routes = function(app) {
   app.get('/', indexController.index);
 
   // API
-  app.get('/sources/', apiController.dealSources);
-  app.get('/source/:name', apiController.dealSource);
+  app.get('/deals', apiController.deals)
+
 };
 
 module.exports = routes;

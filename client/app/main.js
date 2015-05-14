@@ -2,7 +2,8 @@
 
 // Declare app level module which depends on views, and components
 angular.module('dealblender', [
-  'ngRoute'
+  'ngRoute',
+  'akoenig.deckgrid'
 ])
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
